@@ -1,0 +1,44 @@
+.FixedHeightChatArea
+{
+    float:left;
+    height: 500px;
+    width:500px;
+    background:#fff;
+}
+.ScrolledChatArea
+{
+    height:480px;
+    width: 500px;
+    overflow:auto;
+    padding:2px;
+    background:#cfdee5;
+}
+
+.BotChat
+{
+    margin-top: 5px;
+    margin-left: 5px;
+    border-radius: 10px;
+    float: left;
+    width: 80%;
+    padding: 5px;
+    background: #f1948a;
+}
+
+.YouChat
+{
+    margin-top: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+    float: right;
+    width: 80%;
+    padding: 5px;
+    background: #bb8fce;
+}
+
+.InputField
+{
+    margin-top: 2px;
+    padding: 2px;
+    width: 496px;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Bot</title>
+
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<h1>Test Bot Application</h1>
+<br>
+
+<div id="chatArea" class="FixedHeightChatArea">
+
+    <div id="chatScrollArea" class="ScrolledChatArea">
+    </div>
+    <label for="textInput" >
+        <input id="textInput" class="InputField"
+               placeholder="Type something" type="text"
+               onkeydown="ConversationService.inputKeyDown(event, this)"/>
+    </label>
+</div>
+
+<script src="js/chat.js"></script>
+<script src="js/api.js"></script>
+
+</body>
+</html>
