@@ -2,6 +2,7 @@ let Api = (function() {
 
   let messageEndpoint = '/api/msg';
 
+  // store context for current chat session
   let context = {};
 
   // Publicly accessible methods defined
@@ -31,8 +32,6 @@ let Api = (function() {
 
     ConversationService.updateChatArea('Bot', outMsg);
   }
-
-
 
   // Send a message request to the server
   function sendRequest(text) {

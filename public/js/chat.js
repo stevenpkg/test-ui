@@ -10,23 +10,18 @@ let ConversationService = (function() {
 
 
   function updateChatArea(from, text) {
+
     let divObj = document.getElementById('chatScrollArea');
 
-    //var size = divObj.innerText.length;
-
-    //var line = ((size > 0)?"<br>":"") + from + ': ' + text;
-
-    let chatFld = "";
+    let chatBubble = '';
 
     if(from === 'Bot') {
-      chatFld = "<div class=\"BotChat\" >" + text + "</div>";
+      chatBubble = '<div class="BotChat" >' + text + '</div>';
     } else {
-      chatFld = "<div class=\"YouChat\" >" + text + "</div>";
+      chatBubble = '<div class="YouChat" >' + text + '</div>';
     }
 
-    //line = "<font color=\"" + colour + "\">" + line + "</font>";
-
-    divObj.innerHTML += chatFld;
+    divObj.innerHTML += chatBubble;
     divObj.scrollTop = divObj.scrollHeight;
   }
 
@@ -37,7 +32,7 @@ let ConversationService = (function() {
 
       Api.sendRequest(inputFld.value);
 
-      inputFld.value = "";
+      inputFld.value = '';
     }
   }
 

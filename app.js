@@ -1,9 +1,6 @@
 /**
- * Test Bot Application
+ * Chat Bot Application
  */
-
-import module;
-
 
 'use strict';
 

@@ -12,7 +12,7 @@ let server = require('./app');
 let PORT = 3000;
 
 
-console.log("Test Bot Application");
+console.log("Chat Bot Application");
 
 
 server.listen(PORT, function() {
