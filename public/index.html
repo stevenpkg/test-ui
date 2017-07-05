@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Test Bot</title>
+    <title>Chat Bot</title>
 
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-
-<h1>Test Bot Application</h1>
-<br>
+<h1 class="ChatFont" style="text-align: center;float: left">Ask Me a Question About Dementia<br>and Memory Loss</h1>
+<div style="clear:both;"></div>
 
 <div id="chatArea" class="FixedHeightChatArea">
-
+    <div class="AnimatedBot"></div>
     <div id="chatScrollArea" class="ScrolledChatArea">
     </div>
     <label for="textInput" >
@@ -20,9 +19,9 @@
                onkeydown="ConversationService.inputKeyDown(event, this)"/>
     </label>
 </div>
-
-<script src="js/chat.js"></script>
+<script src="js/conv.js"></script>
 <script src="js/api.js"></script>
+<script src="js/initapp.js"></script>
 
 </body>
 </html>

@@ -3,10 +3,14 @@ let ConversationService = (function() {
 
   // Publicly accessible methods defined
   return {
-    //init: init,
+    init: init,
     inputKeyDown: inputKeyDown,
     updateChatArea: updateChatArea
   };
+
+  function init() {
+    Api.sendRequest('hi');
+  }
 
 
   function updateChatArea(from, text) {
@@ -16,9 +20,9 @@ let ConversationService = (function() {
     let chatBubble = '';
 
     if(from === 'Bot') {
-      chatBubble = '<div class="BotChat" >' + text + '</div>';
+      chatBubble = '<div class="BotChat ChatFont" >' + text + '</div>';
     } else {
-      chatBubble = '<div class="YouChat" >' + text + '</div>';
+      chatBubble = '<div class="YouChat ChatFont" >' + text + '</div>';
     }
 
     divObj.innerHTML += chatBubble;

@@ -27,6 +27,7 @@ let convService = new Conversation({
 });
 
 app.post('/api/msg', function(req, res) {
+
   let payload = {
     'workspace_id': process.env.CONVERSATION_WORKSPACE,
     'context': req.body.context || {},
