@@ -8,28 +8,23 @@
     margin-right: auto;
 }
 
-
 .ChatFont
 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-
 .FixedHeightChatArea
 {
-    float:left;
-    align-items: center;
+    float: left;
     width: 550px;
     height: 550px;
-    background:#fff;
+    background: #fff;
 }
 .ScrolledChatArea
 {
     height: 100%;
-    width: 100%
-    overflow:auto;
-    padding:0px;
-    background:#cfdee5;
+    overflow: auto;
+    background: #cfdee5;
 }
 
 .BotChat
