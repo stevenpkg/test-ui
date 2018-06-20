@@ -1,4 +1,4 @@
-let AssistantService = (function() {
+let AssistantService = (function () {
 
   // Publicly accessible methods defined
   return {
@@ -18,7 +18,7 @@ let AssistantService = (function() {
 
     let chatBubble = '';
 
-    if(from === 'Bot') {
+    if (from === 'Bot') {
       chatBubble = '<div class="BotChat ChatFont" >' + text + '</div>';
     } else {
       chatBubble = '<div class="YouChat ChatFont" >' + text + '</div>';

@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Training UI</title>
-    <link rel="stylesheet" href="css/app.css">
+  <title>Training UI</title>
+  <link rel="stylesheet" href="css/app.css">
 </head>
+
 <body>
 
-<h1>Training UI</h1>
-<div style="clear:both;"></div>
+  <h1>Training UI</h1>
+  <div style="clear:both;"></div>
 
-<table>
+  <table>
     <th>Chat Area</th>
     <th>JSON Response</th>
     <tr>
-        <td>
-            <div id="chatArea" class="FixedHeightChatArea">
-                <div id="chatScrollArea" class="ScrolledChatArea">
-                </div>
-                <label for="textInput">
-                    <input id="textInput" class="InputField"
-                           placeholder="Type something" type="text"
-                           onkeydown="AssistantService.inputKeyDown(event, this)"/>
-                </label>
-            </div>
-        </td>
-        <td>
-            <pre id="jsonSourceArea" class="JsonArea"></pre>
-        </td>
+      <td>
+        <div id="chatArea" class="FixedHeightChatArea">
+          <div id="chatScrollArea" class="ScrolledChatArea">
+          </div>
+          <label for="textInput">
+            <input id="textInput" class="InputField" placeholder="Type something" type="text" onkeydown="AssistantService.inputKeyDown(event, this)"
+            />
+          </label>
+        </div>
+      </td>
+      <td>
+        <pre id="jsonSourceArea" class="JsonArea"></pre>
+      </td>
     </tr>
-</table>
+  </table>
 
-<script src="js/assistant.js"></script>
-<script src="js/api.js"></script>
-<script src="js/initapp.js"></script>
+  <script src="js/assistant.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/initapp.js"></script>
 
 </body>
+
 </html>

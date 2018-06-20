@@ -14,7 +14,9 @@ let app = express();
 
 // client UI files
 app.use(express.static('public'));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(bodyParser.json());
 
 // watson assistant service sdk
@@ -26,7 +28,7 @@ let assistantService = new AssistantV1({
   'version': '2018-02-16'
 });
 
-app.post('/api/msg', function(req, res) {
+app.post('/api/msg', function (req, res) {
 
   let payload = {
     'workspace_id': process.env.ASSISTANT_WORKSPACE,
@@ -35,7 +37,7 @@ app.post('/api/msg', function(req, res) {
   };
 
   // Send the input to the assistant service
-  assistantService.message(payload, function(err, response) {
+  assistantService.message(payload, function (err, response) {
     if (err) {
       return res.status(err.code || 500).json(err);
     }

@@ -2,7 +2,7 @@
  * Created by steve on 5/7/17.
  */
 
-(function() {
+(function () {
   // Initialize all modules
   AssistantService.init();
 })();
