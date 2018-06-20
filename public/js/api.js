@@ -40,8 +40,8 @@ let Api = (function() {
       outMsg = 'No response';
     }
 
-    ConversationService.updateChatArea('Bot', outMsg);
-    ConversationService.updateJsonArea(json);
+    AssistantService.updateChatArea('Bot', outMsg);
+    AssistantService.updateJsonArea(json);
   }
 
   function getText(text) {

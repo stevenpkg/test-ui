@@ -1,4 +1,4 @@
-let ConversationService = (function() {
+let AssistantService = (function() {
 
   // Publicly accessible methods defined
   return {
@@ -34,7 +34,7 @@ let ConversationService = (function() {
     let divObj = document.getElementById('jsonSourceArea');
     let jsonStr = JSON.stringify(json, undefined, 2);
 
-    divObj.innerHTML = jsonStr
+    divObj.innerHTML = jsonStr;
   }
 
   function inputKeyDown(event, inputFld) {

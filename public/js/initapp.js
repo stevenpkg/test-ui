@@ -4,5 +4,5 @@
 
 (function() {
   // Initialize all modules
-  ConversationService.init();
+  AssistantService.init();
 })();
