@@ -17,25 +17,25 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// watson conversation service sdk
-let Conversation = require('watson-developer-cloud/conversation/v1');
+// watson assistant service sdk
+let AssistantV1 = require('watson-developer-cloud/assistant/v1');
 
-let convService = new Conversation({
-  'username': process.env.CONVERSATION_USERNAME,
-  'password': process.env.CONVERSATION_PASSWORD,
-  'version_date': Conversation.VERSION_DATE_2017_04_21
+let assistantService = new AssistantV1({
+  'username': process.env.ASSISTANT_USERNAME,
+  'password': process.env.ASSISTANT_PASSWORD,
+  'version': '2018-02-16'
 });
 
 app.post('/api/msg', function(req, res) {
 
   let payload = {
-    'workspace_id': process.env.CONVERSATION_WORKSPACE,
+    'workspace_id': process.env.ASSISTANT_WORKSPACE,
     'context': req.body.context || {},
     'input': req.body.input || {}
   };
 
-  // Send the input to the conversation service
-  convService.message(payload, function(err, response) {
+  // Send the input to the assistant service
+  assistantService.message(payload, function(err, response) {
     if (err) {
       return res.status(err.code || 500).json(err);
     }
