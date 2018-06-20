@@ -10,20 +10,30 @@ let Api = (function() {
     sendRequest: sendRequest
   };
 
-
-  function displayResponse(output) {
+  function displayResponse(json) {
     let outMsg = '';
 
-    if (output.action) {
-      console.log("Action: " + JSON.stringify(output.action));
+    if (json.output.action) {
+      console.log("Action: " + JSON.stringify(json.output.action));
     }
 
     // add text array to response message
-    if (output.text) {
-      for (let i = 0; i < output.text.length; i++) {
-        outMsg += output.text[i];
-        if (i < output.text.length - 1) {
-          outMsg += '<br>';
+    if (json.output.text) {
+      outMsg = getText(json.output.text);
+      if(json.output.generic && json.output.generic[0].text) {
+        if(outMsg.length > 0) {
+          outMsg += "<br>";
+        }
+        outMsg += json.output.generic[0].text;
+        if (json.output.generic[1].options) {
+          outMsg += "<ul>";
+
+          for (let i = 0; i < json.output.generic[1].options.length; i++) {
+            if(json.output.generic[1].options[i].value ) {
+              outMsg += "<li>" + json.output.generic[1].options[i].value + "</li>";
+            }
+          }
+          outMsg += "</ul>";
         }
       }
     } else {
@@ -31,6 +41,18 @@ let Api = (function() {
     }
 
     ConversationService.updateChatArea('Bot', outMsg);
+    ConversationService.updateJsonArea(json);
+  }
+
+  function getText(text) {
+    let outMsg = '';
+    for (let i = 0; i < text.length; i++) {
+      outMsg += text[i];
+      if (i < text.length - 1) {
+        outMsg += '<br>';
+      }
+    }
+    return outMsg;
   }
 
   // Send a message request to the server
@@ -58,7 +80,7 @@ let Api = (function() {
         // save context
         context = jsonRes.context;
 
-        displayResponse(jsonRes.output);
+        displayResponse(jsonRes);
 
       } else if(http.status !== 200) {
         alert(http.responseText);

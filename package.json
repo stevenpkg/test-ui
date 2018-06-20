@@ -1,5 +1,5 @@
 {
-  "name": "chat-bot",
+  "name": "test_ui",
   "version": "1.0.0",
   "description": "Application to test intelligent chat bot",
   "main": "server.js",

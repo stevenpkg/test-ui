@@ -1,17 +1,16 @@
 let ConversationService = (function() {
 
-
   // Publicly accessible methods defined
   return {
     init: init,
     inputKeyDown: inputKeyDown,
-    updateChatArea: updateChatArea
+    updateChatArea: updateChatArea,
+    updateJsonArea: updateJsonArea
   };
 
   function init() {
-    Api.sendRequest('hi');
+    Api.sendRequest('');
   }
-
 
   function updateChatArea(from, text) {
 
@@ -29,6 +28,15 @@ let ConversationService = (function() {
     divObj.scrollTop = divObj.scrollHeight;
   }
 
+
+  function updateJsonArea(json) {
+
+    let divObj = document.getElementById('jsonSourceArea');
+    let jsonStr = JSON.stringify(json, undefined, 2);
+
+    divObj.innerHTML = jsonStr
+  }
+
   function inputKeyDown(event, inputFld) {
     if (event.keyCode === 13 && inputFld.value) {
 
@@ -39,5 +47,4 @@ let ConversationService = (function() {
       inputFld.value = '';
     }
   }
-
 }());
