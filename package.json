@@ -4,7 +4,7 @@
   "description": "Application to test intelligent chat bot",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node server.js NODE_DEBUG=request",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Steve Green",
@@ -13,6 +13,6 @@
     "body-parser": "^1.17.2",
     "dotenv": "^4.0.0",
     "express": "^4.15.3",
-    "watson-developer-cloud": "^3.4.1"
+    "watson-developer-cloud": "^3.5.1"
   }
 }

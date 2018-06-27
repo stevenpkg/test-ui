@@ -22,11 +22,24 @@ app.use(bodyParser.json());
 // watson assistant service sdk
 let AssistantV1 = require('watson-developer-cloud/assistant/v1');
 
-let assistantService = new AssistantV1({
-  'username': process.env.ASSISTANT_USERNAME,
-  'password': process.env.ASSISTANT_PASSWORD,
-  'version': '2018-02-16'
-});
+var assistantService;
+
+if (process.env.ASSISTANT_IAM_APIKEY !== undefined && process.env.ASSISTANT_IAM_APIKEY.length > 0) {
+  console.log('using iam api key');
+  assistantService = new AssistantV1({
+    'version': '2018-02-16',
+    'url': process.env.ASSISTANT_IAM_URL,
+    'iam_apikey': process.env.ASSISTANT_IAM_APIKEY,
+    'iam_url': 'https://iam.bluemix.net/identity/token'
+  });
+} else {
+  console.log('using username and password');
+  assistantService = new AssistantV1({
+    'version': '2018-02-16',
+    'username': process.env.ASSISTANT_USERNAME,
+    'password': process.env.ASSISTANT_PASSWORD
+  });
+}
 
 app.post('/api/msg', function (req, res) {
 
@@ -39,6 +52,7 @@ app.post('/api/msg', function (req, res) {
   // Send the input to the assistant service
   assistantService.message(payload, function (err, response) {
     if (err) {
+      console.log(JSON.stringify(err, null, 2));
       return res.status(err.code || 500).json(err);
     }
 
